@@ -1,4 +1,6 @@
 import { checkToken } from "../../utilities/users-service"
+import Container from 'react-bootstrap/Container';
+
 
 export default function OrderHistoryPage() {
   async function handleCheckToken(){
@@ -7,9 +9,9 @@ export default function OrderHistoryPage() {
     
   }
   return (
-    <>
+    <Container>
       <h1>OrderHistoryPage</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button> 
-    </>
+      <button type="button" className="btn btn-primary" onClick={handleCheckToken}>Check When My Login Expires</button> 
+    </Container>
   )
 }
