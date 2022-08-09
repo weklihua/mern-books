@@ -15,7 +15,8 @@ export default function NavBar({user, setUser}) {
   }
 
   return (
-    <Navbar bg="light" expand="lg">
+    <>
+    <Navbar bg="light" expand="lg" >
       <Container>
       <Navbar.Brand as={Link} to="/">The House of Books</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -32,5 +33,7 @@ export default function NavBar({user, setUser}) {
       </Navbar.Collapse>
       </Container>
     </Navbar>
+    <br></br>
+    </>
   );
 }
