@@ -1,23 +1,51 @@
-import { useState , useEffect } from 'react';
+import { useState , useEffect, useRef } from 'react';
 import Container from 'react-bootstrap/Container';
 import * as booksAPI from '../../utilities/books-api';
+import './NewOrderPage.css';
+import { Link } from 'react-router-dom';
+import Logo from '../../components/Logo/Logo';
+import ShoppingList from '../../components/ShoppingList/ShoppingList';
+import GenreList from '../../components/GenreList/GenreList';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
-export default function NewOrderPage() {
-  const [menuBooks, setMenuBooks] = useState([]);
+export default function NewOrderPage({user, setUser}) {
+  const [shoppingBooks, setShoppingBooks] = useState([]);
+  const genresRef = useRef([]);
+  const [activeGen, setActiveGen] = useState('');
+  // const [cart, setCart] = useState(null)
 
   // Add this useEffect with a dependency array
   useEffect(function() {
     async function getBooks() {
       const books = await booksAPI.getAll();
-      setMenuBooks(books);
+      genresRef.current = [...new Set(books.map(book => book.genre.name))];
+
+      setShoppingBooks(books);
+      setActiveGen(genresRef.current[0]);
+
     }
     getBooks();
   }, []);
 
   return (
-    <Container>
-    <h1>NewOrderPage</h1>
-    <button type="button" class="btn btn-primary" onClick={setMenuBooks}>Trigger re-render</button>
+    <Container className="NewOrderPage">
+      <aside>
+      {/* <Logo /> */}
+      <GenreList
+        genres={genresRef.current}
+        activeGen={activeGen}
+        setActiveGen={setActiveGen}
+      />
+      <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
+      <UserLogOut user={user} setUser={setUser} />
+      </aside>
+      <ShoppingList
+        shoppingBooks={shoppingBooks.filter(book => book.genre.name === activeGen)}
+        // handleAddToOrder={handleAddToOrder}
+      />
+      <OrderDetail />
+      {/* <button type="button" class="btn btn-primary" onClick={setShoppingBooks}>Trigger re-render</button> */}
     </Container>
   );
 }

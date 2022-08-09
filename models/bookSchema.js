@@ -11,7 +11,7 @@ const reviewSchema = new Schema({
 
 const bookSchema = new Schema({
   name: { type: String, required: true },
-  emoji: String,
+  
   author: {type: String},
   genre: {type: Schema.Types.ObjectId, ref: 'Genre'},
   price: { type: Number, required: true, default: 0 },
