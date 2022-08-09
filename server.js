@@ -18,6 +18,10 @@ app.use(require('./config/checkToken'));
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 
+// Protect the api routes below from anonymous users
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/books', ensureLoggedIn, require('./routes/api/books'));
+
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
 app.get('/*', function(req, res) {
