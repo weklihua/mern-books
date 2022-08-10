@@ -8,12 +8,14 @@ import ShoppingList from '../../components/ShoppingList/ShoppingList';
 import GenreList from '../../components/GenreList/GenreList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import * as ordersAPI from '../../utilities/orders-api';
+
 
 export default function NewOrderPage({user, setUser}) {
   const [shoppingBooks, setShoppingBooks] = useState([]);
   const genresRef = useRef([]);
   const [activeGen, setActiveGen] = useState('');
-  // const [cart, setCart] = useState(null)
+  const [cart, setCart] = useState(null)
 
   // Add this useEffect with a dependency array
   useEffect(function() {
@@ -26,6 +28,12 @@ export default function NewOrderPage({user, setUser}) {
 
     }
     getBooks();
+    // Load cart (a cart is the unpaid order for the logged in user)
+    async function getCart() {
+      const cart = await ordersAPI.getCart();
+      setCart(cart);
+    }
+    getCart();
   }, []);
 
   return (
