@@ -1,8 +1,11 @@
 .NewOrderPage {
   height: 100%;
   display: grid;
-  grid-template-columns: 1.6fr 3.5fr 3fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  /* grid-column: span 2; */
+  grid-gap: 10px;
+
+  grid-template-rows: 2fr;
   /* background-color: var(--white); */
   border-radius: 2vmin;
 }
@@ -13,4 +16,8 @@
   justify-content: space-between;
   align-items: center;
   margin: 3vmin 2vmin;
+}
+
+.nav.nav-pills {
+  grid-column: 1 / 3;
 }

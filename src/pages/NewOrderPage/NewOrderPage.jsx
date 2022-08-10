@@ -58,16 +58,17 @@ export default function NewOrderPage({user, setUser}) {
 
   return (
     <Container className="NewOrderPage">
-      <aside>
+      {/* <aside> */}
       {/* <Logo /> */}
       <GenreList
         genres={genresRef.current}
         activeGen={activeGen}
         setActiveGen={setActiveGen}
       />
-      <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-      <UserLogOut user={user} setUser={setUser} />
-      </aside>
+      {/* <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
+      <UserLogOut user={user} setUser={setUser} /> */}
+      {/* </aside> */}
+      {/* <br></br> */}
       <ShoppingList
         shoppingBooks={shoppingBooks.filter(book => book.genre.name === activeGen)}
         // handleAddToOrder={handleAddToOrder}
