@@ -44,6 +44,8 @@ export default function NewOrderPage({user, setUser}) {
     const updatedCart = await ordersAPI.addBookToCart(bookId)
     // 2. Update the cart state with the updated cart received from the server
     setCart(updatedCart)
+    // console.log('hello')
+    // alert(`add book: ${bookId}`);
   }
 
   async function handleChangeQty(bookId, newQty) {
@@ -71,7 +73,7 @@ export default function NewOrderPage({user, setUser}) {
       {/* <br></br> */}
       <ShoppingList
         shoppingBooks={shoppingBooks.filter(book => book.genre.name === activeGen)}
-        // handleAddToOrder={handleAddToOrder}
+        handleAddToOrder={handleAddToOrder}
       />
       <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout}/>
       {/* <button type="button" class="btn btn-primary" onClick={setShoppingBooks}>Trigger re-render</button> */}
