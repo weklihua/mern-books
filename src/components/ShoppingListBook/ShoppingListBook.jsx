@@ -10,7 +10,7 @@ export default function ShoppingListBook({ shoppingBook, handleAddToOrder }) {
           <h4 className="card-title">{shoppingBook.name}</h4>
           <div className="card-text"><span>Price: ${shoppingBook.price.toFixed(2)}</span>
           <hr/>
-        <button type="button" className="btn btn-warning" onClick={() => handleAddToOrder(shoppingBook._id)}>
+        <button type="button" className="btn btn-primary btn-sm" style={{"float": "right"}} onClick={() => handleAddToOrder(shoppingBook._id)}>
           ADD
         </button></div>
         </div>
