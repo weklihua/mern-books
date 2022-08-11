@@ -20,13 +20,12 @@ export default function ShoppingListBook({ shoppingBook, handleAddToOrder, child
                 element={<BookDetailPage shoppingBook={shoppingBook} />}
               />
             </Router> */}
-            <Link
+            <Link onClick={() => childToParent(shoppingBook)}
               to={`/books/${shoppingBook._id}`}
               element={<BookDetailPage shoppingBook={shoppingBook} />}
             >
-            <BookDetailPage shoppingBook={shoppingBook} />
-            </Link>
             <button onClick={() => childToParent(shoppingBook)} >click child</button>
+            </Link>
             {/* <BookDetailPage shoppingBook={shoppingBook} onClick={() => navigate(`/books/${shoppingBook._id}`)} /> */}
           </div>
           <hr />
