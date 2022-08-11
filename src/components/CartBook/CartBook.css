@@ -30,4 +30,10 @@
 .CartBook button {
   margin: 0;
 }
+td.qty {
+  width: 100px;
+
+  /* word-wrap: break-word; */
+
+}
 

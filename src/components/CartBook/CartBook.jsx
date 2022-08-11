@@ -15,7 +15,7 @@ export default function CartBook({ cartBook, isPaid, handleChangeQty }) {
             onClick={() => handleChangeQty(cartBook.book._id, cartBook.qty - 1)}
           >−</button>
         }
-        <span>&nbsp;&nbsp;{cartBook.qty}&nbsp;&nbsp;</span>
+        <span id="qty">&nbsp;&nbsp;{cartBook.qty}&nbsp;&nbsp;</span>
         {!isPaid &&
           <button type="button" className="btn btn-primary btn-sm"
             
