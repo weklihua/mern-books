@@ -113,6 +113,7 @@ export default class SignUpForm extends Component {
 
       <Container>
 
+    
         <div className="form-container">
             <label for="chk" aria-hidden="true">Sign up</label>
           <form autoComplete="off" onSubmit={this.handleSubmit}>

@@ -2,7 +2,7 @@ import "./ShoppingListBook.css";
 
 export default function ShoppingListBook({ shoppingBook, handleAddToOrder }) {
   return (
-    <div className="card border-secondary mb-3">
+    <div className="card border-primary mb-3" >
       <div className="card-header">Author: {shoppingBook.author}</div>
       <div className="card-body">
         <h4 className="card-title">{shoppingBook.name}</h4>
@@ -11,7 +11,7 @@ export default function ShoppingListBook({ shoppingBook, handleAddToOrder }) {
           <hr />
           <button
             type="button"
-            className="btn btn-primary btn-sm"
+            className="btn btn-primary"
             style={{ float: "right" }}
             onClick={() => handleAddToOrder(shoppingBook._id)}
           >

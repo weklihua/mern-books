@@ -2,7 +2,7 @@ import './CartBook.css';
 
 export default function CartBook({ cartBook, isPaid, handleChangeQty }) {
   return (
-    <tr class="table-light">
+    <tr>
       <td className="flex-ctr-ctr">{cartBook.book.name}</td>
       <td className="flex-ctr-ctr flex-col">
         {/* <span className="align-ctr">{cartBook.book.author}</span> */}

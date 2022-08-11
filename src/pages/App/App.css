@@ -41,3 +41,8 @@ h1 {
     transform: rotate(360deg);
   }
 }
+
+button:hover{
+	background: white;
+	/* background: rgb(199, 222, 246); */
+}

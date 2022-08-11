@@ -17,7 +17,7 @@ export default function NavBar({user, setUser}) {
 
   return (
     <>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
       <Nav.Link className="navbar-brand" as={Link} to="/">The House of Books</Nav.Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,15 +33,20 @@ export default function NavBar({user, setUser}) {
         <li className="nav-item">
           <Nav.Link Link as={Link} to="/orders/new" className="nav-link-active">New Order</Nav.Link>
         </li>
+
         </ul>
-        <ul class="nav navbar-nav navbar-center">
+        {/* <ul class="nav navbar-nav navbar-center">
 
         <li className="nav-item">
         <span className="navbar-text">Welcome, {user.name}</span>
 
         </li>
-        </ul>
+        </ul> */}
         <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+        <span className="navbar-text">Welcome, {user.name}&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+
+        </li>
         <li className="nav-item">
           <Nav.Link as={Link} to="" onClick={handleLogOut} className="nav-link">Log Out</Nav.Link>
         </li>
