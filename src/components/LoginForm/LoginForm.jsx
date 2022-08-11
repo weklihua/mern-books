@@ -1,7 +1,6 @@
 import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import "./LoginForm.css";
 
@@ -32,19 +31,6 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    //   <div>
-    //   <div className="login">
-    //     <form autoComplete="off" onSubmit={handleSubmit}>
-    //       <label for="chk" aria-hidden="true" >Email</label>
-    //       <input type="email" name="email" value={credentials.email} onChange={handleChange} placeholder="Email" required />
-    //       <label>Password</label>
-    //       <input type="password" name="password" value={credentials.password} onChange={handleChange} placeholder="Email" required />
-    //       <button type="submit">LOG IN</button>
-    //     </form>
-    //   </div>
-    //   <p className="error-message">&nbsp;{error}</p>
-    // </div>
-
     <Container>
       <div className="form-container">
         <label for="chk" aria-hidden="true">
@@ -53,12 +39,10 @@ export default function LoginForm({ setUser }) {
 
         <form autoComplete="off" onSubmit={handleSubmit}>
           <fieldset>
-            <div class="form-group">
-              {/* <label for="exampleInputEmail1" class="form-label mt-4">Email address</label> */}
+            <div className="form-group">
               <input
                 type="email"
-                class="form-control"
-                id="exampleInputEmail1"
+                className="form-control"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
                 name="email"
@@ -66,17 +50,14 @@ export default function LoginForm({ setUser }) {
                 onChange={handleChange}
                 required
               />
-              <small id="emailHelp" class="form-text text-muted">
+              {/* <small id="emailHelp" className="form-text text-muted">
                 We'll never share your email with anyone else.
-              </small>
+              </small> */}
             </div>
-
-            <div class="form-group">
-              {/* <label for="exampleInputPassword1" class="form-label mt-4">Password</label> */}
+            <div className="form-group">
               <input
                 type="password"
-                class="form-control"
-                id="exampleInputPassword1"
+                className="form-control"
                 placeholder="Password"
                 name="password"
                 value={credentials.password}

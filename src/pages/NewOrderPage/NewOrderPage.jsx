@@ -2,12 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import * as booksAPI from "../../utilities/books-api";
 import "./NewOrderPage.css";
-import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../components/Logo/Logo";
+import { useNavigate } from "react-router-dom";
 import ShoppingList from "../../components/ShoppingList/ShoppingList";
 import GenreList from "../../components/GenreList/GenreList";
 import OrderDetail from "../../components/OrderDetail/OrderDetail";
-import UserLogOut from "../../components/UserLogOut/UserLogOut";
 import * as ordersAPI from "../../utilities/orders-api";
 
 export default function NewOrderPage({ user, setUser }) {

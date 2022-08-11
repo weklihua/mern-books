@@ -16,7 +16,11 @@ export default function OrderList({ orders, activeOrder, handleSelectOrder }) {
       {orderBooks.length ?
         orderBooks
         :
-        <span className="no-orders">No Previous Orders</span>
+        // <span className="no-orders">No Previous Orders</span>
+        <div class="alert alert-dismissible alert-secondary">
+           
+        <strong>No Previous Orders</strong>
+      </div>
       }
     </main>
   );

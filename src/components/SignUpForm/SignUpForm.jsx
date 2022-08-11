@@ -1,8 +1,6 @@
 import { Component } from "react";
 // import {useState} from "react"
 import { signUp } from "../../utilities/users-service";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import "./SignUpForm.css";
 
@@ -53,8 +51,6 @@ export default class SignUpForm extends Component {
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <fieldset>
               <div className="form-group">
-                {/* <label for="name" className="form-label mt-4">Name</label> */}
-
                 <input
                   type="text"
                   className="form-control"
@@ -68,11 +64,9 @@ export default class SignUpForm extends Component {
               </div>
 
               <div className="form-group">
-                {/* <label for="exampleInputEmail1" className="form-label mt-4">Email</label> */}
                 <input
                   type="email"
                   className="form-control"
-                  id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
                   name="email"
@@ -83,11 +77,9 @@ export default class SignUpForm extends Component {
               </div>
 
               <div className="form-group">
-                {/* <label for="exampleInputPassword1" className="form-label mt-4">Password</label> */}
                 <input
                   type="password"
                   className="form-control"
-                  id="exampleInputPassword1"
                   placeholder="Password"
                   name="password"
                   value={this.state.password}
@@ -96,7 +88,6 @@ export default class SignUpForm extends Component {
                 />
               </div>
               <div className="form-group">
-                {/* <label for="confirm" className="form-label mt-4">Confirm</label> */}
                 <input
                   type="password"
                   className="form-control"
