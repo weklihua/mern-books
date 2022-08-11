@@ -70,3 +70,13 @@
   padding: 5px;
   float: right;
 }
+div.alert.alert-dismissible.alert-secondary{
+  text-align: center;
+  margin: 20px;
+  padding: 30px;
+}
+
+.OrderDetail span.smaller {
+  font-size: small;
+  
+}

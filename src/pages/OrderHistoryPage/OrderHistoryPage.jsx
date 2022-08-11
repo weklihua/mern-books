@@ -1,12 +1,12 @@
-import './OrderHistoryPage.css';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import * as ordersAPI from '../../utilities/orders-api';
-import Logo from '../../components/Logo/Logo';
-import UserLogOut from '../../components/UserLogOut/UserLogOut';
-import OrderList from '../../components/OrderList/OrderList';
-import OrderDetail from '../../components/OrderDetail/OrderDetail';
-import { Container } from 'react-bootstrap';
+import "./OrderHistoryPage.css";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import * as ordersAPI from "../../utilities/orders-api";
+import Logo from "../../components/Logo/Logo";
+import UserLogOut from "../../components/UserLogOut/UserLogOut";
+import OrderList from "../../components/OrderList/OrderList";
+import OrderDetail from "../../components/OrderDetail/OrderDetail";
+import { Container } from "react-bootstrap";
 
 export default function OrderHistoryPage({ user, setUser }) {
   /*--- State --- */
@@ -32,16 +32,18 @@ export default function OrderHistoryPage({ user, setUser }) {
 
   /*--- Rendered UI --- */
   return (
-    <Container className="OrderHistoryPage">
-
+    <Container className="OrderHistoryPage" >
+      <ul class="nav nav-pills" id="nav-header">
+        <li class="nav-item" >
+          <h4>Previous Orders</h4>
+        </li>
+      </ul>
       <OrderList
         orders={orders}
         activeOrder={activeOrder}
         handleSelectOrder={handleSelectOrder}
       />
-      <OrderDetail
-        order={activeOrder}
-      />
+      <OrderDetail order={activeOrder} />
     </Container>
   );
 }

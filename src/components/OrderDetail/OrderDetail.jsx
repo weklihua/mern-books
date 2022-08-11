@@ -1,5 +1,7 @@
 import "./OrderDetail.css";
 import CartBook from "../CartBook/CartBook";
+import Container from "react-bootstrap/Container";
+
 
 // Used to display the details of any order, including the cart (unpaid order)
 export default function OrderDetail({
@@ -19,8 +21,9 @@ export default function OrderDetail({
   ));
 
   return (
-    <div className="OrderDetail">
-      <div className="section-heading">
+    <Container className="OrderDetail">
+      <div className="card border-info mb-3">
+      <div class="card-body">
         {order.isPaid ? (
           <span>
             ORDER <span className="smaller">{order.orderId}</span>
@@ -31,6 +34,7 @@ export default function OrderDetail({
         <span style={{ float: "right" }}>
           {new Date(order.updatedAt).toLocaleDateString()}
         </span>
+        </div>
       </div>
       <div className="line-book-container flex-ctr-ctr flex-col scroll-y">
         {cartBooks.length ? (
@@ -68,15 +72,11 @@ export default function OrderDetail({
         ) : (
           // <div className="hungry">Hungry?</div>
           <div class="alert alert-dismissible alert-secondary">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-            ></button>
+           
             <strong>Add new books</strong>
           </div>
         )}
       </div>
-    </div>
+    </Container>
   );
 }
