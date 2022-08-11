@@ -64,3 +64,9 @@
   align-items: end;
   float: right;
 }
+
+.OrderDetail .total span.right {
+  margin: 5px;
+  padding: 5px;
+  float: right;
+}

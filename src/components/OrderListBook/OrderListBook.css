@@ -1,0 +1,19 @@
+.card.border-primary.mb-3 {
+
+  cursor: pointer;
+}
+
+.card.border-primary.mb-3 > div> div:first-child {
+  margin-bottom: .5vmin;
+}
+
+.card.border-primary.mb-3.selected {
+  border-color: var(--orange);
+  border-width: .4vmin;
+  cursor: default;
+}
+
+.card.border-primary.mb-3:not(.selected):hover {
+  border-color: var(--orange);
+  border-width: .2vmin;
+}

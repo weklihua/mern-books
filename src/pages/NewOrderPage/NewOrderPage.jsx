@@ -57,17 +57,11 @@ export default function NewOrderPage({ user, setUser }) {
 
   return (
     <Container className="NewOrderPage">
-      {/* <aside> */}
-      {/* <Logo /> */}
       <GenreList
         genres={genresRef.current}
         activeGen={activeGen}
         setActiveGen={setActiveGen}
       />
-      {/* <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-      <UserLogOut user={user} setUser={setUser} /> */}
-      {/* </aside> */}
-      {/* <br></br> */}
       <ShoppingList
         shoppingBooks={shoppingBooks.filter(
           (book) => book.genre.name === activeGen
@@ -79,7 +73,6 @@ export default function NewOrderPage({ user, setUser }) {
         handleChangeQty={handleChangeQty}
         handleCheckout={handleCheckout}
       />
-      {/* <button type="button" class="btn btn-primary" onClick={setShoppingBooks}>Trigger re-render</button> */}
     </Container>
   );
 }

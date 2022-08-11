@@ -45,7 +45,7 @@ export default function OrderDetail({
             </table>
             <section className="total">
               {order.isPaid ? (
-                <span className="right">TOTAL&nbsp;&nbsp;</span>
+                <span className="right">TOTAL: ${order.orderTotal.toFixed(2)}</span>
               ) : (
                 <>
                   <div>Total Qty: {order.totalQty}</div>
