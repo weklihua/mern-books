@@ -1,4 +1,4 @@
-.OrderDetail {
+/* .OrderDetail {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -44,4 +44,23 @@
   position: absolute;
   top: 50vh;
   font-size: 2vmin;
+} */
+
+.OrderDetail .total div {
+  margin: 5px;
+  padding: 5px;
+  text-align: end;
+  
+}
+
+.OrderDetail .total div.right {
+  margin: 5px;
+  padding: 5px;
+  text-align: end;
+
+}
+.OrderDetail .total button {
+  margin: 5px;
+  align-items: end;
+  float: right;
 }
