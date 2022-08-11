@@ -5,6 +5,7 @@ import { getUser } from "../../utilities/users-service";
 import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import AuthPage from "../AuthPage/AuthPage";
 import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
+import OrderDetailPage from "../OrderDetailPage/OrderDetailPage";
 import NavBar from "../../components/NavBar/NavBar";
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
               element={<NewOrderPage user={user} setUser={setUser} />}
             />
             <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
+            <Route path="/books/:id" element={<OrderDetailPage user={user} setUser={setUser} />} />
             <Route path="/*" element={<Navigate to="/orders/new" />} />
           </Routes>
         </>

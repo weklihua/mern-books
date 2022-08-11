@@ -1,4 +1,7 @@
 import "./ShoppingListBook.css";
+import {Link} from "react-router-dom"
+import OrderDetailPage from "../../pages/OrderDetailPage/OrderDetailPage"
+import { Routes, Route, Navigate } from "react-router-dom";
 
 export default function ShoppingListBook({ shoppingBook, handleAddToOrder }) {
   return (
@@ -8,6 +11,9 @@ export default function ShoppingListBook({ shoppingBook, handleAddToOrder }) {
         <h4 className="card-title">{shoppingBook.name}</h4>
         <div className="card-text">
           <span>Price: ${shoppingBook.price.toFixed(2)}</span>
+          <div>
+            <Link to={`/books/${shoppingBook._id}`} element={<OrderDetailPage shoppingBook={shoppingBook}  />} >Details</Link>
+            </div>
           <hr />
           <button
             type="button"
@@ -20,16 +26,6 @@ export default function ShoppingListBook({ shoppingBook, handleAddToOrder }) {
         </div>
       </div>
     </div>
-    // <div className="ShoppingListBook">
 
-    //   <div className="name flex-ctr-ctr">{shoppingBook.name}</div>
-    //   <div className="author">{shoppingBook.author}</div>
-    //   <div className="buy">
-    //     <span>${shoppingBook.price.toFixed(2)}</span>
-    //     <button type="button" class="btn btn-primary" className="btn-sm" onClick={() => handleAddToOrder(shoppingBook._id)}>
-    //       ADD
-    //     </button>
-    //   </div>
-    // </div>
   );
 }
