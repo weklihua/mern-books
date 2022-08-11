@@ -1,19 +1,34 @@
 import "./ShoppingListBook.css";
-import {Link} from "react-router-dom"
-import OrderDetailPage from "../../pages/OrderDetailPage/OrderDetailPage"
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import BookDetailPage from "../../pages/BookDetailPage/BookDetailPage";
+// import { Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
-export default function ShoppingListBook({ shoppingBook, handleAddToOrder }) {
+export default function ShoppingListBook({ shoppingBook, handleAddToOrder, childToParent }) {
+  // let navigate = useNavigate()
   return (
-    <div className="card border-primary mb-3" >
+    <div className="card border-primary mb-3">
       <div className="card-header">Author: {shoppingBook.author}</div>
       <div className="card-body">
         <h4 className="card-title">{shoppingBook.name}</h4>
         <div className="card-text">
           <span>Price: ${shoppingBook.price.toFixed(2)}</span>
           <div>
-            <Link to={`/books/${shoppingBook._id}`} element={<OrderDetailPage shoppingBook={shoppingBook}  />} >Details</Link>
-            </div>
+            {/* <Router>
+              <Route
+                path="/books/:id"
+                element={<BookDetailPage shoppingBook={shoppingBook} />}
+              />
+            </Router> */}
+            <Link
+              to={`/books/${shoppingBook._id}`}
+              element={<BookDetailPage shoppingBook={shoppingBook} />}
+            >
+            <BookDetailPage shoppingBook={shoppingBook} />
+            </Link>
+            <button onClick={() => childToParent(shoppingBook)} >click child</button>
+            {/* <BookDetailPage shoppingBook={shoppingBook} onClick={() => navigate(`/books/${shoppingBook._id}`)} /> */}
+          </div>
           <hr />
           <button
             type="button"
@@ -26,6 +41,5 @@ export default function ShoppingListBook({ shoppingBook, handleAddToOrder }) {
         </div>
       </div>
     </div>
-
   );
 }

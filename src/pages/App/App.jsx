@@ -5,11 +5,16 @@ import { getUser } from "../../utilities/users-service";
 import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import AuthPage from "../AuthPage/AuthPage";
 import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
-import OrderDetailPage from "../OrderDetailPage/OrderDetailPage";
+import BookDetailPage from "../BookDetailPage/BookDetailPage";
 import NavBar from "../../components/NavBar/NavBar";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [data, setData] = useState('')
+  const childToParent = (childData) =>{
+    setData(childData)
+  }
+  // const [activeBook, setAvtiveBook] = useState(null)
   return (
     <main className="App">
       {user ? (
@@ -18,10 +23,10 @@ export default function App() {
           <Routes>
             <Route
               path="/orders/new"
-              element={<NewOrderPage user={user} setUser={setUser} />}
+              element={<NewOrderPage user={user} setUser={setUser} childToParent={childToParent}/>}
             />
             <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
-            <Route path="/books/:id" element={<OrderDetailPage user={user} setUser={setUser} />} />
+            <Route path="/books/:id" element={<BookDetailPage data={data} setUser={setUser} />} />
             <Route path="/*" element={<Navigate to="/orders/new" />} />
           </Routes>
         </>

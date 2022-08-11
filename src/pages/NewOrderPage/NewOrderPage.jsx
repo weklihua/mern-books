@@ -8,7 +8,7 @@ import GenreList from "../../components/GenreList/GenreList";
 import OrderDetail from "../../components/OrderDetail/OrderDetail";
 import * as ordersAPI from "../../utilities/orders-api";
 
-export default function NewOrderPage({ user, setUser }) {
+export default function NewOrderPage({ user, setUser, childToParent }) {
   const [shoppingBooks, setShoppingBooks] = useState([]);
   const genresRef = useRef([]);
   const [activeGen, setActiveGen] = useState("");
@@ -61,6 +61,7 @@ export default function NewOrderPage({ user, setUser }) {
         setActiveGen={setActiveGen}
       />
       <ShoppingList
+      childToParent={childToParent}
         shoppingBooks={shoppingBooks.filter(
           (book) => book.genre.name === activeGen
         )}
