@@ -11,3 +11,7 @@
   margin: auto;
   width: auto;
 }
+
+.BookDetailPage select {
+  width:40%;
+}

@@ -21,25 +21,25 @@ export default function BookDetailPage({ data, setData }) {
     // console.log(reviews)
     // console.log(data)
     // console.log('Submit reviews!')
-    const review = await getReviews(data._id, reviews);
-    console.log(review);
+    const updatedBook = await getReviews(data._id, reviews);
+    // console.log(review);
     setReviews({
       rating: 5,
       content: "",
     });
-    setData(review);
+    setData(updatedBook);
   }
 
   return (
     <Container className="BookDetailPage">
       <h1>{data.name}</h1>
       <div className="form-container">
-        <div class="card border-secondary mb-3">
-          <div class="card-body">
-            <p class="card-text">Author: {data.author}</p>
-            <p class="card-text">Genre: {data.genre.name}</p>
-            <p class="card-text">Price: $ {data.price}</p>
-            <p class="card-text">Description: {data.description}</p>
+        <div className="card border-secondary mb-3">
+          <div className="card-body">
+            <p className="card-text">Author: {data.author}</p>
+            <p className="card-text">Genre: {data.genre.name}</p>
+            <p className="card-text">Price: $ {data.price}</p>
+            <p className="card-text">Description: {data.description}</p>
           </div>
         </div>
       </div>
@@ -49,44 +49,46 @@ export default function BookDetailPage({ data, setData }) {
 
       <div className="form-container" style={{ "padding-top": 0 }}>
         <legend>Reviews</legend>
-        
-        {
-        data.reviews.length ?
-    
-        data.reviews.map((review) => {
-          return (
-            <>
-              <div
-                class="toast show"
-                role="alert"
-                aria-live="assertive"
-                aria-atomic="true"
-              >
-                <div class="toast-header">
-                  <strong class="me-auto">User: {review.userName} </strong>
-                  <span>Rating: {review.rating}</span>
-                  <small>
-                    {new Date(review.updatedAt).toLocaleDateString()}
-                  </small>
+
+        {data.reviews.length ? (
+          data.reviews.map((review) => {
+            return (
+              <>
+                <div
+                  className="toast show"
+                  role="alert"
+                  aria-live="assertive"
+                  aria-atomic="true"
+                >
+                  <div className="toast-header">
+                    <strong className="me-auto">
+                      User: {review.userName}{" "}
+                    </strong>
+                    <span>Rating: {review.rating}</span>
+                    <small>
+                      {new Date(review.updatedAt).toLocaleDateString()}
+                    </small>
+                  </div>
+                  <div className="toast-body">{review.content}</div>
                 </div>
-                <div class="toast-body">{review.content}</div>
-              </div>
-              <hr />
-            </>
-          );
-        }) : <p>No reviews yet.</p>
-      }
+                <hr />
+              </>
+            );
+          })
+        ) : (
+          <p>No reviews yet.</p>
+        )}
       </div>
       <div>
         <div className="form-container" style={{ "padding-top": 0 }}>
           <form autoComplete="off" onSubmit={handleSubmit}>
             <legend>Add Reviews</legend>
-            <div class="form-group">
-              <label for="exampleSelect1" class="form-label mt-4">
+            <div className="form-group">
+              <label for="exampleSelect1" className="form-label mt-4">
                 Rating
               </label>
               <select
-                class="form-select"
+                className="form-select"
                 id="exampleSelect1"
                 type="number"
                 name="rating"
@@ -103,12 +105,12 @@ export default function BookDetailPage({ data, setData }) {
                 </option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="exampleTextarea" class="form-label mt-4">
+            <div className="form-group">
+              <label for="exampleTextarea" className="form-label mt-4">
                 Content
               </label>
               <textarea
-                class="form-control"
+                className="form-control"
                 id="exampleTextarea"
                 rows="3"
                 type="text"
@@ -120,8 +122,8 @@ export default function BookDetailPage({ data, setData }) {
                 {" "}
               </textarea>
             </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">
+            <div className="form-group">
+              <button type="submit" className="btn btn-primary">
                 Add Review
               </button>
             </div>
