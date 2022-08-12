@@ -31,7 +31,7 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <Container>
+    <Container className="LoginForm">
       <div className="form-container">
         <label for="chk" aria-hidden="true">
           Login
