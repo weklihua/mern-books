@@ -33,14 +33,23 @@ export default function BookDetailPage({ data, setData }) {
   return (
     <Container className="BookDetailPage">
       <h1>{data.name}</h1>
-      <h5>Author: {data.author}</h5>
-      <h5>Genre: {data.genre.name}</h5>
-      <h5>Price: {data.price}</h5>
-      <h5>Description: {data.description}</h5>
+      <div class="card border-secondary mb-3" >
+  
+  <div class="card-body">
+
+      <p class="card-text">Author: {data.author}</p>
+      <p class="card-text">Genre: {data.genre.name}</p>
+      <p class="card-text">Price: {data.price}</p>
+      <p class="card-text">Description: {data.description}</p>
+  </div>
+</div>
+{/* 
       <br />
-      <br />
+      <br /> */}
+
+
       <div className="form-container">
-        <h2>Reviews</h2>
+      <legend>Reviews</legend>
         {data.reviews.map((review) => {
           return (
             <>
@@ -56,24 +65,17 @@ export default function BookDetailPage({ data, setData }) {
                   <small>
                     {new Date(review.updatedAt).toLocaleDateString()}
                   </small>
-                  {/* <button
-                    type="button"
-                    class="btn-close ms-2 mb-1"
-                    data-bs-dismiss="toast"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true"></span>
-                  </button> */}
+
                 </div>
                 <div class="toast-body">{review.content}</div>
               </div>
-              <hr />
+              {/* <hr /> */}
             </>
           );
         })}
       </div>
       <div>
-        <div className="form-container">
+        <div className="form-container" style={{"padding-top":0}}>
           <form autoComplete="off" onSubmit={handleSubmit}>
             <legend>Add Reviews</legend>
             <div class="form-group">
