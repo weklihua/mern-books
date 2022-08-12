@@ -3,6 +3,7 @@ import * as userService from "../../utilities/users-service";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import "./NavBar.css";
 
@@ -16,6 +17,9 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <>
+    <Container>
+
+   
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Nav.Link className="navbar-brand" as={Link} to="/">
@@ -80,6 +84,7 @@ export default function NavBar({ user, setUser }) {
       </nav>
 
       <br></br>
+      </Container>
     </>
   );
 }
