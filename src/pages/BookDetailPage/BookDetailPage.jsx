@@ -39,35 +39,39 @@ export default function BookDetailPage({ data, setData }) {
       <h5>Description: {data.description}</h5>
       <br />
       <br />
-      <h2>Reviews</h2>
-      {data.reviews.map((review) => {
-        return (
-          <div
-            class="toast show"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-          >
-            <div class="toast-header">
-              <strong class="me-auto">{review.userName}</strong>
-              <small>{new Date(review.updatedAt).toLocaleDateString()}</small>
-              <button
-                type="button"
-                class="btn-close ms-2 mb-1"
-                data-bs-dismiss="toast"
-                aria-label="Close"
+      <div className="form-container">
+        <h2>Reviews</h2>
+        {data.reviews.map((review) => {
+          return (
+            <>
+              <div
+                class="toast show"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
               >
-                <span aria-hidden="true"></span>
-              </button>
-            </div>
-            <div class="toast-body">Hello, world! This is a toast message.</div>
-          </div>
-          // <>
-          //   <div>{review.rating}</div>
-          //   <div>{review.content}</div>
-          // </>
-        );
-      })}
+                <div class="toast-header">
+                  <strong class="me-auto">User: {review.userName} </strong>
+                  <span>Rating: {review.rating}</span>
+                  <small>
+                    {new Date(review.updatedAt).toLocaleDateString()}
+                  </small>
+                  {/* <button
+                    type="button"
+                    class="btn-close ms-2 mb-1"
+                    data-bs-dismiss="toast"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true"></span>
+                  </button> */}
+                </div>
+                <div class="toast-body">{review.content}</div>
+              </div>
+              <hr />
+            </>
+          );
+        })}
+      </div>
       <div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={handleSubmit}>

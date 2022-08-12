@@ -1,3 +1,13 @@
 .BookDetailPage legend {
   text-align: center;
 }
+
+.BookDetailPage span {
+  display: table;
+  margin-left: 0;
+  margin-right: auto;
+}
+.BookDetailPage div.toast.show {
+  margin: auto;
+  width: auto;
+}
