@@ -3,6 +3,8 @@ export default function BookDetailPage({ data }) {
     <>
     <h1>BookDetailPage</h1>
     <div>{data.name}</div>
+    <div>{data.author}</div>
+    <div>{data.reviews}</div>
     
     </>
   )
