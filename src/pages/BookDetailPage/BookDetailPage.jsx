@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { getReviews } from "../../utilities/books-api";
 
-export default function BookDetailPage({ data }) {
+export default function BookDetailPage({ data, setData }) {
 
   const [reviews, setReviews] = useState({
     rating: 5,
@@ -18,15 +18,9 @@ export default function BookDetailPage({ data }) {
     // Prevent form from being submitted to the server
     evt.preventDefault();
     console.log('Submit reviews!')
-    // try {
-    //   // The promise returned by the signUp service method 
-    //   // will resolve to the user object included in the
-    //   // payload of the JSON Web Token (JWT)
-    //   const review = await getReviews(data._id);
-    //   setReviews(review);
-    // } catch {
-    //   setError('Try Again');
-    // }
+      const review = await getReviews(data._id);
+      setReviews(review);
+
   }
 
   return (
@@ -34,7 +28,7 @@ export default function BookDetailPage({ data }) {
     <h1>BookDetailPage</h1>
     <div>{data.name}</div>
     <div>{data.author}</div>
-    <div>{data.reviews}</div>
+    {/* <div>{reviews.reviews[0].rating}</div> */}
     <br/><br/><h2>Reviews</h2>
     <div>
       <div className="form-container">

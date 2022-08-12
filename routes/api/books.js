@@ -9,6 +9,6 @@ router.get('/', booksCtrl.index);
 // GET /api/books/:id
 router.get('/:id', booksCtrl.show);
 //POST /movies/:id/reviews
-router.post('/:id/reviews', reviewsCtrl.create)
+router.post('/:id/reviews', reviewsCtrl.create);
 
 module.exports = router;
