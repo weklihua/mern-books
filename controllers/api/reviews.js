@@ -10,7 +10,7 @@ async function create(req, res) {
     // Add the user-centric info to req.body (the new review)
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
-    console.log(req.body)
+    // console.log(req.body)
 
     // Push the subdoc for the review
     foundBook.reviews.push(req.body);

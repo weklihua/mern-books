@@ -33,24 +33,27 @@ export default function BookDetailPage({ data, setData }) {
   return (
     <Container className="BookDetailPage">
       <h1>{data.name}</h1>
-      <div class="card border-secondary mb-3" >
-  
-  <div class="card-body">
-
-      <p class="card-text">Author: {data.author}</p>
-      <p class="card-text">Genre: {data.genre.name}</p>
-      <p class="card-text">Price: {data.price}</p>
-      <p class="card-text">Description: {data.description}</p>
-  </div>
-</div>
-{/* 
+      <div className="form-container">
+        <div class="card border-secondary mb-3">
+          <div class="card-body">
+            <p class="card-text">Author: {data.author}</p>
+            <p class="card-text">Genre: {data.genre.name}</p>
+            <p class="card-text">Price: $ {data.price}</p>
+            <p class="card-text">Description: {data.description}</p>
+          </div>
+        </div>
+      </div>
+      {/* 
       <br />
       <br /> */}
 
-
-      <div className="form-container">
-      <legend>Reviews</legend>
-        {data.reviews.map((review) => {
+      <div className="form-container" style={{ "padding-top": 0 }}>
+        <legend>Reviews</legend>
+        
+        {
+        data.reviews.length ?
+    
+        data.reviews.map((review) => {
           return (
             <>
               <div
@@ -65,17 +68,17 @@ export default function BookDetailPage({ data, setData }) {
                   <small>
                     {new Date(review.updatedAt).toLocaleDateString()}
                   </small>
-
                 </div>
                 <div class="toast-body">{review.content}</div>
               </div>
-              {/* <hr /> */}
+              <hr />
             </>
           );
-        })}
+        }) : <p>No reviews yet.</p>
+      }
       </div>
       <div>
-        <div className="form-container" style={{"padding-top":0}}>
+        <div className="form-container" style={{ "padding-top": 0 }}>
           <form autoComplete="off" onSubmit={handleSubmit}>
             <legend>Add Reviews</legend>
             <div class="form-group">

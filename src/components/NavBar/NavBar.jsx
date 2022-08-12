@@ -16,7 +16,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Nav.Link className="navbar-brand" as={Link} to="/">
             The House of Books
@@ -81,24 +81,5 @@ export default function NavBar({ user, setUser }) {
 
       <br></br>
     </>
-    // <>
-    // <Navbar className="navbar navbar-expand-lg navbar-light bg-light">
-    //   <Container>
-    //   <Navbar.Brand as={Link} to="/">The House of Books</Navbar.Brand>
-    //   <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //   <Navbar.Collapse id="basic-navbar-nav">
-    //   <Nav className="me-auto">
-
-    //   <Nav.Link as={Link} className="nav-link active" to="/orders">Order History</Nav.Link>
-    //   {/* &nbsp; | &nbsp; */}
-    //   <Nav.Link as={Link} className="nav-link active" to="/orders/new">New Order</Nav.Link>
-    //   <Nav.Link as={Link} className="nav-link active" to="" onClick={handleLogOut}>Log Out</Nav.Link>
-    //   <span className="navbar-text">Welcome, {user.name}</span>
-    //   </Nav>
-    //   </Navbar.Collapse>
-    //   </Container>
-    // </Navbar>
-    // <br></br>
-    // </>
   );
 }
