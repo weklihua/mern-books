@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getReviews } from "../../utilities/books-api";
 import Container from "react-bootstrap/Container";
-import "./BookDetailPage.css"
+import "./BookDetailPage.css";
 
 export default function BookDetailPage({ data, setData }) {
   const [reviews, setReviews] = useState({
@@ -32,24 +32,46 @@ export default function BookDetailPage({ data, setData }) {
 
   return (
     <Container className="BookDetailPage">
-      <h1>BookDetailPage</h1>
-      <div>{data.name}</div>
-      <div>{data.author}</div>
+      <h1>{data.name}</h1>
+      <h5>Author: {data.author}</h5>
+      <h5>Genre: {data.genre.name}</h5>
+      <h5>Price: {data.price}</h5>
+      <h5>Description: {data.description}</h5>
       <br />
       <br />
       <h2>Reviews</h2>
       {data.reviews.map((review) => {
         return (
-          <>
-            <div>{review.rating}</div>
-            <div>{review.content}</div>
-          </>
+          <div
+            class="toast show"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+            <div class="toast-header">
+              <strong class="me-auto">{review.userName}</strong>
+              <small>{new Date(review.updatedAt).toLocaleDateString()}</small>
+              <button
+                type="button"
+                class="btn-close ms-2 mb-1"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+              >
+                <span aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="toast-body">Hello, world! This is a toast message.</div>
+          </div>
+          // <>
+          //   <div>{review.rating}</div>
+          //   <div>{review.content}</div>
+          // </>
         );
       })}
       <div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={handleSubmit}>
-          <legend>Add Reviews</legend>
+            <legend>Add Reviews</legend>
             <div class="form-group">
               <label for="exampleSelect1" class="form-label mt-4">
                 Rating
@@ -90,8 +112,10 @@ export default function BookDetailPage({ data, setData }) {
               </textarea>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary">Add Review</button>
-              </div>
+              <button type="submit" class="btn btn-primary">
+                Add Review
+              </button>
+            </div>
           </form>
         </div>
         <p className="error-message">&nbsp;{error}</p>
