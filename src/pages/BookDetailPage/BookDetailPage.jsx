@@ -17,9 +17,17 @@ export default function BookDetailPage({ data, setData }) {
   async function handleSubmit(evt) {
     // Prevent form from being submitted to the server
     evt.preventDefault();
-    console.log('Submit reviews!')
-      const review = await getReviews(data._id);
-      setReviews(review);
+    // console.log(reviews)
+    // console.log(data)
+    // console.log('Submit reviews!')
+    const review = await getReviews(data._id, reviews);
+    console.log(review)
+    setReviews({
+      rating: 5,
+      content: ''
+    });
+    setData(review)
+      
 
   }
 
@@ -28,15 +36,17 @@ export default function BookDetailPage({ data, setData }) {
     <h1>BookDetailPage</h1>
     <div>{data.name}</div>
     <div>{data.author}</div>
-    {/* <div>{reviews.reviews[0].rating}</div> */}
     <br/><br/><h2>Reviews</h2>
+    {data.reviews.map((review) => {
+      return <div>{review.rating}</div>
+    })}
     <div>
       <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div>
 
           <label>Rating</label>
-          <select type="number" name="rating" value={data.reviews.rating} onChange={handleChange} required >
+          <select type="number" name="rating" value={reviews.rating} onChange={handleChange} required >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -47,7 +57,7 @@ export default function BookDetailPage({ data, setData }) {
           <div>
 
           <label>Content</label>
-          <input type="text" name="content" value={data.reviews.content} onChange={handleChange} required />
+          <input type="text" name="content" value={reviews.content} onChange={handleChange} required />
           </div>
           <button type="submit">Add Review</button>
         </form>

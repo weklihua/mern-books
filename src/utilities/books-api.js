@@ -11,6 +11,6 @@ export function getAll() {
 export function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
-export function getReviews(bookId) {
-  return sendRequest(`${BASE_URL}/${bookId}/reviews`, 'POST');
+export function getReviews(bookId, data) {
+  return sendRequest(`${BASE_URL}/${bookId}/reviews`, 'POST', data);
 }
