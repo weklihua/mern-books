@@ -15,3 +15,9 @@
 .BookDetailPage select {
   width:40%;
 }
+
+.BookDetailPage button.btn.btn-outline-secondary.btn-sm {
+  /* display: inline-block; */
+  float:right;
+  /* text-align:right; */
+}
