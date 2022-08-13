@@ -1,7 +1,8 @@
 const Book = require('../../models/book');
 
 module.exports = {
-  create
+  create,
+  delete: deleteReview,
 };
 
 async function create(req, res) {
@@ -18,5 +19,12 @@ async function create(req, res) {
     // Always save the top-level document (not subdocs)
     res.json(foundBook)
   };
+  
+  async function deleteReview(req, res) {
+    console.log(req.body)
+    const book = await Book.getBook(req.body.bookId)
+    await book.deleteReviewOfBook(req.body.reviewId); 
+    res.json(book)
+  }
   
   

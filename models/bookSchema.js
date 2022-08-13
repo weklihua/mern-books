@@ -21,4 +21,23 @@ const bookSchema = new Schema({
   timestamps: true
 });
 
+bookSchema.statics.getBook = function(bookId){
+  return this.findOneAndUpdate(
+    // query
+    {book: bookId},
+    //update - in the case the book is upserted
+    {book:bookId},
+    // upsert option creates the doc of it doesn't exist
+    // {upsert: true, new: true}
+
+  )
+
+}
+
+bookSchema.methods.deleteReviewOfBook = function(reviewId) {
+  const book = this
+  const review = book.reviews.find(review => review._id.equals(reviewId))
+  review.remove()
+  return book.save()
+}
 module.exports = bookSchema;

@@ -14,3 +14,7 @@ export function getById(id) {
 export function getReviews(bookId, data) {
   return sendRequest(`${BASE_URL}/${bookId}/reviews`, 'POST', data);
 }
+
+export function getDeleteReview(bookId, reviewId) {
+  return sendRequest(`${BASE_URL}/reviews/delete`, 'PUT', {bookId, reviewId})
+}

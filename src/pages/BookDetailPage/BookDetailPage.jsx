@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getReviews } from "../../utilities/books-api";
+import { getReviews, getDeleteReview } from "../../utilities/books-api";
 import Container from "react-bootstrap/Container";
 import "./BookDetailPage.css";
 
@@ -18,16 +18,21 @@ export default function BookDetailPage({ data, setData }) {
   async function handleSubmit(evt) {
     // Prevent form from being submitted to the server
     evt.preventDefault();
-    // console.log(reviews)
     // console.log(data)
     // console.log('Submit reviews!')
     const updatedBook = await getReviews(data._id, reviews);
-    // console.log(review);
+    console.log(updatedBook);
     setReviews({
       rating: 5,
       content: "",
     });
+    // console.log(reviews._id)
     setData(updatedBook);
+  }
+  async function handleDelete(bookId, reviewId){
+    // evt.preventDefault();
+    const deleteReview = await getDeleteReview(bookId, reviewId);
+    setReviews(deleteReview)
   }
 
   return (
@@ -70,6 +75,16 @@ export default function BookDetailPage({ data, setData }) {
                     </small>
                   </div>
                   <div className="toast-body">{review.content}</div>
+                  {/* <form onSubmit={handleDelete}> */}
+                    <button
+                      type="submit"
+                      onClick={() => handleDelete(data._id, review._id)}
+                      class="btn btn-danger btn-sm"
+                      data-bs-dismiss="toast"
+                    >
+                      DELETE
+                    </button>
+                  {/* </form> */}
                 </div>
                 <hr />
               </>
