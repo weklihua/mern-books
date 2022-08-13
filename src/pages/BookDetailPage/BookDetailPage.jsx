@@ -96,7 +96,7 @@ useEffect(function(){
                     onClick={() => handleDelete(data._id, review._id)}
                     // onChange={handleChange}
                     class="btn btn-danger btn-sm"
-                    data-bs-dismiss="toast"
+                    // data-bs-dismiss="toast"
                   >
                     DELETE
                   </button>
