@@ -1,7 +1,15 @@
 .BookDetailPage h3 {
   text-align: center;
 }
-
+.BookDetailPage img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  float:right;
+  padding-right: 2%;
+  margin-left: 5%;
+}
 .BookDetailPage span {
   display: table;
   margin-left: 0;

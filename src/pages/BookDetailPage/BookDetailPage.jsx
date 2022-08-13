@@ -56,13 +56,15 @@ export default function BookDetailPage({ data, setData, user }) {
       {data ? (
         <Container className="BookDetailPage">
           <h1>{data.name}</h1>
+
           <div className="form-container">
             <div className="card border-secondary mb-3">
               <div className="card-body">
-                <p className="card-text">Author: {data.author}</p>
-                <p className="card-text">Genre: {genre}</p>
-                <p className="card-text">Price: $ {data.price}</p>
-                <p className="card-text">Description: {data.description}</p>
+                <p className="card-text"><strong>Author</strong>: {data.author} <img src={data.image}/></p>
+                <p className="card-text"><strong>Genre </strong>: {genre}</p>
+                <p className="card-text"><strong>Price </strong>: $ {data.price}</p>
+                <p className="card-text"><strong>Description </strong>: {data.description}</p>
+                
               </div>
             </div>
           </div>

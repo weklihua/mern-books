@@ -15,6 +15,7 @@ const bookSchema = new Schema({
   author: {type: String},
   genre: {type: Schema.Types.ObjectId, ref: 'Genre'},
   price: { type: Number, required: true, default: 0 },
+  image:{type: String},
   description: {type: String},
   reviews: [reviewSchema]
 }, {
