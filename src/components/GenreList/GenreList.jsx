@@ -7,8 +7,10 @@ export default function GenreList({ genres, activeGen, setActiveGen }) {
     </li>
   );
   return (
-    <ul className="nav nav-pills">
+    <>
+    <ul className="nav nav-pills" id="GenreList">
       {gens}
     </ul>
+    </>
   );
 }
