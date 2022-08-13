@@ -33,6 +33,10 @@ export default function BookDetailPage({ data, setData }) {
     // evt.preventDefault();
     const deleteReview = await getDeleteReview(bookId, reviewId);
     console.log(deleteReview)
+    setReviews({
+      rating: 5,
+      content: "",
+    });
     setData(deleteReview)
   }
 
@@ -54,7 +58,7 @@ export default function BookDetailPage({ data, setData }) {
       <br /> */}
 
       <div className="form-container" style={{ "padding-top": 0 }}>
-        <h4>Reviews</h4>
+        <h3>Reviews</h3>
 
         {data.reviews.length ? (
           data.reviews.map((review) => {

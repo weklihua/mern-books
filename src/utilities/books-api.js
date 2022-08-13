@@ -16,5 +16,5 @@ export function getReviews(bookId, data) {
 }
 
 export function getDeleteReview(bookId, reviewId) {
-  return sendRequest(`${BASE_URL}/reviews/delete`, 'PUT', {bookId, reviewId})
+  return sendRequest(`${BASE_URL}/${bookId}/reviews`, 'PUT', {bookId, reviewId})
 }

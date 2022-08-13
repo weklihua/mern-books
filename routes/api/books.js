@@ -11,7 +11,7 @@ router.get('/:id', booksCtrl.show);
 //POST /movies/:id/reviews
 router.post('/:id/reviews', reviewsCtrl.create);
 
-router.put('/reviews/delete', reviewsCtrl.delete)
+router.put('/:id/reviews', reviewsCtrl.delete)
 
 
 module.exports = router;

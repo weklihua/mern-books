@@ -22,7 +22,8 @@ async function create(req, res) {
   
   async function deleteReview(req, res) {
     console.log(req.body)
-    const book = await Book.getBook(req.body.bookId)
+    const book = await Book.findById(req.body.bookId)
+    console.log(book)
     await book.deleteReviewOfBook(req.body.reviewId); 
     res.json(book)
   }
