@@ -1,8 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as userService from "../../utilities/users-service";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import "./NavBar.css";
@@ -23,7 +22,7 @@ export default function NavBar({ user, setUser }) {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Nav.Link className="navbar-brand" as={Link} to="/">
-            The House of Books
+          The House of Books
           </Nav.Link>
           <button
             className="navbar-toggler"
