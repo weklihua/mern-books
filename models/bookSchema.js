@@ -37,7 +37,10 @@ bookSchema.statics.getBook = function(bookId){
 bookSchema.methods.deleteReviewOfBook = function(reviewId) {
   const book = this
   const review = book.reviews.find(review => review._id.equals(reviewId))
-  review.remove()
+  if (review) {
+
+    review.remove()
+  } 
   return book.save()
 }
 module.exports = bookSchema;

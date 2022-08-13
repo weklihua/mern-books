@@ -32,7 +32,8 @@ export default function BookDetailPage({ data, setData }) {
   async function handleDelete(bookId, reviewId){
     // evt.preventDefault();
     const deleteReview = await getDeleteReview(bookId, reviewId);
-    setReviews(deleteReview)
+    console.log(deleteReview)
+    setData(deleteReview)
   }
 
   return (
@@ -53,7 +54,7 @@ export default function BookDetailPage({ data, setData }) {
       <br /> */}
 
       <div className="form-container" style={{ "padding-top": 0 }}>
-        <legend>Reviews</legend>
+        <h4>Reviews</h4>
 
         {data.reviews.length ? (
           data.reviews.map((review) => {
@@ -79,6 +80,7 @@ export default function BookDetailPage({ data, setData }) {
                     <button
                       type="submit"
                       onClick={() => handleDelete(data._id, review._id)}
+                      // onChange={handleChange}
                       class="btn btn-danger btn-sm"
                       data-bs-dismiss="toast"
                     >
