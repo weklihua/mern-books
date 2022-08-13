@@ -5,8 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import "./BookDetailPage.css";
 
-export default function BookDetailPage({ data, setData }) {
+export default function BookDetailPage({ data, setData, user }) {
   const navigate = useNavigate();
+  const [genre, setGenre] = useState(data.genre.name)
   const [reviews, setReviews] = useState({
     rating: 5,
     content: "",
@@ -39,9 +40,9 @@ export default function BookDetailPage({ data, setData }) {
     // console.log(reviews._id)
     setData(updatedBook);
   }
-  async function handleDelete(bookId, reviewId) {
+  async function handleDelete(bookId, reviewId, userId) {
     // evt.preventDefault();
-    const deleteReview = await getDeleteReview(bookId, reviewId);
+    const deleteReview = await getDeleteReview(bookId, reviewId, userId);
     console.log(deleteReview);
     setReviews({
       rating: 5,
@@ -59,7 +60,7 @@ export default function BookDetailPage({ data, setData }) {
             <div className="card border-secondary mb-3">
               <div className="card-body">
                 <p className="card-text">Author: {data.author}</p>
-                <p className="card-text">Genre: {data.genre.name}</p>
+                <p className="card-text">Genre: {genre}</p>
                 <p className="card-text">Price: $ {data.price}</p>
                 <p className="card-text">Description: {data.description}</p>
               </div>
@@ -90,16 +91,18 @@ export default function BookDetailPage({ data, setData }) {
                       </div>
                       <div className="toast-body">
                         {review.content}
-
+                        {user._id === review.user?
                         <button
-                          type="submit"
-                          onClick={() => handleDelete(data._id, review._id)}
-                          // onChange={handleChange}
-                          className="btn btn-outline-secondary btn-sm"
-                          // data-bs-dismiss="toast"
+                        type="submit"
+                        onClick={() =>{handleDelete(data._id, review._id)} }
+                        // onChange={handleChange}
+                        className="btn btn-outline-secondary btn-sm"
+                        // data-bs-dismiss="toast"
                         >
                           DELETE
-                        </button>
+                        </button> 
+                        : null 
+                        }
                         <hr/>
                       </div>
                       {/* <form onSubmit={handleDelete}> */}
@@ -117,7 +120,7 @@ export default function BookDetailPage({ data, setData }) {
           <div>
             <div className="form-container" style={{ "padding-top": 0 }}>
               <form autoComplete="off" onSubmit={handleSubmit}>
-                <legend>Add Reviews</legend>
+                <h3>Add a Review</h3>
                 <div className="form-group">
                   <label for="exampleSelect1" className="form-label mt-4">
                     Rating

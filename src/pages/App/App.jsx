@@ -26,7 +26,7 @@ export default function App() {
               element={<NewOrderPage user={user} setUser={setUser} childToParent={childToParent}/>}
             />
             <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
-            <Route path="/books/:id" element={<BookDetailPage data={data} setData={setData} />} />
+            <Route path="/books/:id" element={<BookDetailPage user={user} data={data} setData={setData} />} />
             <Route path="/*" element={<Navigate to="/orders/new" />} />
           </Routes>
         </>
