@@ -8,7 +8,7 @@ export default function ShoppingListBook({
   childToParent,
 }) {
   return (
-    <div className="card border-primary mb-3">
+    <div className="card border-secondary mb-3">
       <div className="card-header">Author: {shoppingBook.author}</div>
       <div className="card-body">
         <h4 className="card-title">{shoppingBook.name}</h4>
