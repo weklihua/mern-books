@@ -7,7 +7,7 @@ import "./BookDetailPage.css";
 
 export default function BookDetailPage({ data, setData, user }) {
   const navigate = useNavigate();
-  // const [genre, setGenre] = useState(data.genre.name)
+  const [genre, setGenre] = useState(data?data.genre.name:null)
   const [reviews, setReviews] = useState({
     rating: 5,
     content: "",
@@ -61,7 +61,7 @@ export default function BookDetailPage({ data, setData, user }) {
             <div className="card border-secondary mb-3">
               <div className="card-body">
                 <p className="card-text"><strong>Author</strong>: {data.author} <img src={data.image}/></p>
-                {/* <p className="card-text"><strong>Genre </strong>: {genre}</p> */}
+                <p className="card-text"><strong>Genre </strong>: {genre}</p>
                 <p className="card-text"><strong>Price </strong>: $ {data.price}</p>
                 <p className="card-text"><strong>Description </strong>: {data.description}</p>
                 
