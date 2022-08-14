@@ -31,10 +31,12 @@ button.btn.btn-primary.btn-lg:hovor{
 }
 
 .AuthPage div.form-container {
-	width: 409.73px;
-	height: 583.11px;
+	/* width: 409.73px; */
+	/* height: 583.11px; */
   margin:auto;
-  padding-top: 150px;
+  /* padding-top: 150px; */
+  padding: 25%;
+  
 }
 
 .AuthPage button{
