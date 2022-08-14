@@ -69,11 +69,11 @@ export default function BookDetailPage({ data, setData, user }) {
           <h1>{data.name}</h1>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary "
             style={{ float: "right" }}
             onClick={() => handleAddToOrderCopy(data._id)}
           >
-            ADD
+            {cart?<><span>&nbsp;&nbsp;Added to Cart&nbsp;&nbsp;</span><span className="badge bg-primary rounded-pill">{cart.totalQty}</span></> :<span>&nbsp;&nbsp;Add to Cart&nbsp;&nbsp;</span>}
           </button>
 
           <div className="form-container">
@@ -105,7 +105,7 @@ export default function BookDetailPage({ data, setData, user }) {
                         <strong className="me-auto">
                           User: {review.userName}{" "}
                         </strong>
-                        <span>Rating: {review.rating}</span>
+                        <span id="rating" >Rating: {review.rating}</span>
                         <small>
                           {new Date(review.updatedAt).toLocaleDateString()}
                         </small>
