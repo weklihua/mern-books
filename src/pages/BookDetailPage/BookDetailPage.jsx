@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import "./BookDetailPage.css";
+import * as ordersAPI from "../../utilities/orders-api";
 
 export default function BookDetailPage({ data, setData, user }) {
+  const [cart, setCart] = useState(null);
   const navigate = useNavigate();
   const [genre, setGenre] = useState(data?data.genre.name:null)
   const [reviews, setReviews] = useState({
@@ -20,6 +22,15 @@ export default function BookDetailPage({ data, setData, user }) {
     }
     // handleRefresh()
   }, []);
+
+  async function handleAddToOrderCopy(bookId) {
+    // 1. Call the addbookToCart function in ordersAPI, passing to it the bookId, and assign the resolved promise to a variable named cart.
+    const updatedCart = await ordersAPI.addBookToCart(bookId);
+    // 2. Update the cart state with the updated cart received from the server
+    setCart(updatedCart);
+    // console.log('hello')
+    // alert(`add book: ${bookId}`);
+  }
 
   function handleChange(evt) {
     setReviews({ ...reviews, [evt.target.name]: evt.target.value });
@@ -56,6 +67,14 @@ export default function BookDetailPage({ data, setData, user }) {
       {data ? (
         <Container className="BookDetailPage">
           <h1>{data.name}</h1>
+          <button
+            type="button"
+            className="btn btn-primary"
+            style={{ float: "right" }}
+            onClick={() => handleAddToOrderCopy(data._id)}
+          >
+            ADD
+          </button>
 
           <div className="form-container">
             <div className="card border-secondary mb-3">
