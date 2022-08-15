@@ -11,7 +11,6 @@ const reviewSchema = new Schema({
 
 const bookSchema = new Schema({
   name: { type: String, required: true },
-  
   author: {type: String},
   genre: {type: Schema.Types.ObjectId, ref: 'Genre'},
   price: { type: Number, required: true, default: 0 },
@@ -30,20 +29,15 @@ bookSchema.statics.getBook = function(bookId){
     {book:bookId},
     // upsert option creates the doc of it doesn't exist
     // {upsert: true, new: true}
-
   )
-
 }
 
 bookSchema.methods.deleteReviewOfBook = function(reviewId) {
   const book = this
   const review = book.reviews.find(review => review._id.equals(reviewId))
-  // console.log(review)
   if (review) {
-
     review.remove()
   } 
   return book.save()
-  // console.log(book)
 }
 module.exports = bookSchema;

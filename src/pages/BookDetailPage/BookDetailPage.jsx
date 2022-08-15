@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getReviews, getDeleteReview } from "../../utilities/books-api";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import "./BookDetailPage.css";
@@ -8,28 +8,18 @@ import * as ordersAPI from "../../utilities/orders-api";
 
 export default function BookDetailPage({ data, setData, user }) {
   const [cart, setCart] = useState(null);
-  const navigate = useNavigate();
-  const [genre, setGenre] = useState(data?data.genre.name:null)
+  const [genre, setGenre] = useState(data ? data.genre.name : null);
   const [reviews, setReviews] = useState({
     rating: 5,
     content: "",
   });
   const [error, setError] = useState("");
 
-  useEffect(function () {
-    function handleRefresh() {
-      navigate("/orders/new");
-    }
-    // handleRefresh()
-  }, []);
-
   async function handleAddToOrderCopy(bookId) {
     // 1. Call the addbookToCart function in ordersAPI, passing to it the bookId, and assign the resolved promise to a variable named cart.
     const updatedCart = await ordersAPI.addBookToCart(bookId);
     // 2. Update the cart state with the updated cart received from the server
     setCart(updatedCart);
-    // console.log('hello')
-    // alert(`add book: ${bookId}`);
   }
 
   function handleChange(evt) {
@@ -40,19 +30,15 @@ export default function BookDetailPage({ data, setData, user }) {
   async function handleSubmit(evt) {
     // Prevent form from being submitted to the server
     evt.preventDefault();
-    // console.log(data)
-    // console.log('Submit reviews!')
     const updatedBook = await getReviews(data._id, reviews);
     console.log(updatedBook);
     setReviews({
       rating: 5,
       content: "",
     });
-    // console.log(reviews._id)
     setData(updatedBook);
   }
   async function handleDelete(bookId, reviewId, userId) {
-    // evt.preventDefault();
     const deleteReview = await getDeleteReview(bookId, reviewId, userId);
     console.log(deleteReview);
     setReviews({
@@ -67,23 +53,46 @@ export default function BookDetailPage({ data, setData, user }) {
       {data ? (
         <Container className="BookDetailPage">
           <h1>{data.name}</h1>
-          <button
-            type="button"
-            className="btn btn-primary "
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic example"
             style={{ float: "right" }}
-            onClick={() => handleAddToOrderCopy(data._id)}
           >
-            {cart?<><span>&nbsp;&nbsp;Added to Cart&nbsp;&nbsp;</span><span className="badge bg-primary rounded-pill">{cart.totalQty}</span></> :<span>&nbsp;&nbsp;Add to Cart&nbsp;&nbsp;</span>}
-          </button>
+            <button
+              type="button"
+              className="btn btn-primary "
+              onClick={() => handleAddToOrderCopy(data._id)}
+            >
+              {cart ? (
+                <>
+                  <span>&nbsp;&nbsp;Added to Cart&nbsp;&nbsp;</span>
+                  <span className="badge bg-primary rounded-pill">
+                    {cart.totalQty}
+                  </span>
+                </>
+              ) : (
+                <span>&nbsp;&nbsp;Add to Cart&nbsp;&nbsp;</span>
+              )}
+            </button>
+          </div>
 
           <div className="form-container">
             <div className="card border-secondary mb-3">
               <div className="card-body">
-                <p className="card-text"><strong>Author</strong>: {data.author} <img src={data.image}/></p>
-                <p className="card-text"><strong>Genre </strong>: {genre}</p>
-                <p className="card-text"><strong>Price </strong>: $ {data.price}</p>
-                <p className="card-text"><strong>Description </strong>: {data.description}</p>
-                
+                <p className="card-text">
+                  <strong>Author</strong>: {data.author}{" "}
+                  <img src={data.image} />
+                </p>
+                <p className="card-text">
+                  <strong>Genre </strong>: {genre}
+                </p>
+                <p className="card-text">
+                  <strong>Price </strong>: $ {data.price}
+                </p>
+                <p className="card-text">
+                  <strong>Description </strong>: {data.description}
+                </p>
               </div>
             </div>
           </div>
@@ -105,30 +114,26 @@ export default function BookDetailPage({ data, setData, user }) {
                         <strong className="me-auto">
                           User: {review.userName}{" "}
                         </strong>
-                        <span id="rating" >Rating: {review.rating}</span>
+                        <span id="rating">Rating: {review.rating}</span>
                         <small>
                           {new Date(review.updatedAt).toLocaleDateString()}
                         </small>
                       </div>
                       <div className="toast-body">
                         {review.content}
-                        {user._id === review.user?
-                        <button
-                        type="submit"
-                        onClick={() =>{handleDelete(data._id, review._id)} }
-                        // onChange={handleChange}
-                        className="btn btn-outline-secondary btn-sm"
-                        // data-bs-dismiss="toast"
-                        >
-                          DELETE
-                        </button> 
-                        : null 
-                        }
-                        <hr/>
+                        {user._id === review.user ? (
+                          <button
+                            type="submit"
+                            onClick={() => {
+                              handleDelete(data._id, review._id);
+                            }}
+                            className="btn btn-outline-secondary btn-sm"
+                          >
+                            DELETE
+                          </button>
+                        ) : null}
+                        <hr />
                       </div>
-                      {/* <form onSubmit={handleDelete}> */}
-
-                      {/* </form> */}
                     </div>
                     <hr />
                   </>
