@@ -14,7 +14,7 @@ The House of Books is a site that users can view, add, and review books. All use
 ![Screen Shot 2022-08-15 at 9 41 57 AM](https://user-images.githubusercontent.com/105599499/184677830-16843a9d-839f-452c-af09-fb1377596835.png)
 
 # Technologies Used
-React, Express, MongoDB, Mongoose, Node, CSS, HTML, Bootstrap
+React, Express, MongoDB, Mongoose, Node, CSS, HTML, Bootstrap, token-based authentication
 
 # Getting Started
 
