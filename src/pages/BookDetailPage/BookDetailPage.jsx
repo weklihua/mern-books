@@ -82,7 +82,7 @@ export default function BookDetailPage({ data, setData, user }) {
               <div className="card-body">
                 <p className="card-text">
                   <strong>Author</strong>: {data.author}{" "}
-                  <img src={data.image} />
+                  <img src={data.image} alt="book" />
                 </p>
                 <p className="card-text">
                   <strong>Genre </strong>: {genre}

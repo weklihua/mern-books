@@ -14,7 +14,6 @@ export default function App() {
   const childToParent = (childData) =>{
     setData(childData)
   }
-  // const [activeBook, setAvtiveBook] = useState(null)
   return (
     <main className="App">
       {user ? (

@@ -8,9 +8,9 @@ const reviewsCtrl = require('../../controllers/api/reviews')
 router.get('/', booksCtrl.index);
 // GET /api/books/:id
 router.get('/:id', booksCtrl.show);
-//POST /movies/:id/reviews
+//POST /books/:id/reviews
 router.post('/:id/reviews', reviewsCtrl.create);
-
+//PUT /books/:id/reviews
 router.put('/:id/reviews', reviewsCtrl.delete)
 
 

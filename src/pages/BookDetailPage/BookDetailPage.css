@@ -26,9 +26,7 @@
 }
 
 .BookDetailPage button.btn.btn-outline-secondary.btn-sm {
-  /* display: inline-block; */
   float:right;
-  /* text-align:right; */
 }
 
 .BookDetailPage button.btn.btn-primary {

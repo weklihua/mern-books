@@ -41,10 +41,7 @@ export default function OrderDetail({
           <>
             <table class="table table-hover">
               <tbody>
-                {/* <tr class="table-active"> */}
                 {cartBooks}
-
-                {/* </tr> */}
               </tbody>
             </table>
             <section className="total">
@@ -70,7 +67,6 @@ export default function OrderDetail({
             </section>
           </>
         ) : (
-          // <div className="hungry">Hungry?</div>
           <div class="alert alert-dismissible alert-secondary">
            
             <strong>Add new books</strong>
